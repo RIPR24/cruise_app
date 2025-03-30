@@ -1,13 +1,18 @@
 import { View, Text, TextInput, Button } from "react-native";
 import React from "react";
+import { logss } from "../styles/login";
 
 const Login = () => {
   return (
     <View>
-      <View style={{ flexDirection: "column", alignItems: "center", gap: 10 }}>
+      <View style={logss.colCon}>
         <Text>Login</Text>
-        <TextInput placeholder="Username" />
-        <TextInput secureTextEntry={true} placeholder="Password" />
+        <TextInput style={logss.inp} placeholder="Username" />
+        <TextInput
+          style={logss.inp}
+          secureTextEntry={true}
+          placeholder="Password"
+        />
         <Button title="Login" />
       </View>
     </View>
