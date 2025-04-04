@@ -21,3 +21,5 @@ export const logss = StyleSheet.create({
     height: 75,
   },
 });
+
+export default logss;

@@ -6,13 +6,14 @@ import {
   Image,
   useColorScheme,
 } from "react-native";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { logss } from "../styles/login";
 import crs from "../../assets/images/cruise.png";
 import crsw from "../../assets/images/cruise-w.png";
 import { useRouter } from "expo-router";
 import { CruiseContext } from "../Context/AppContext";
 import { postReq } from "../utils/request";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 type info = {
   username: string;
@@ -40,12 +41,29 @@ const Login = () => {
       } else {
         if (setUser) setUser(res.user);
         if (res.user?.room) {
-          //router.push("voy");
-          localStorage.setItem("tok", res.user.token || "");
+          router.push("/home");
+          AsyncStorage.setItem("tok", res.user.token || "");
         }
       }
     }
   };
+
+  const loginTok = async () => {
+    const tok = await AsyncStorage.getItem("tok");
+    if (tok) {
+      await AsyncStorage.removeItem("tok");
+      const res = await postReq("voy/logintok", { tok });
+      if (res.user?.room) {
+        if (setUser) setUser(res.user);
+        AsyncStorage.setItem("tok", res.user.token || "");
+        router.push("/home");
+      }
+    }
+  };
+
+  useEffect(() => {
+    loginTok();
+  }, []);
 
   return (
     <View>
@@ -70,7 +88,7 @@ const Login = () => {
           }}
         />
         <Text style={{ color: "red" }}>{prob}</Text>
-        <Button disabled={disable} title="Login" />
+        <Button onPress={login} disabled={disable} title="Login" />
       </View>
     </View>
   );

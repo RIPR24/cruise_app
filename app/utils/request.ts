@@ -36,3 +36,5 @@ const getReq = async (surl: string) => {
 };
 
 export { postReq, putReq, getReq, site, delReq };
+
+export default {};
