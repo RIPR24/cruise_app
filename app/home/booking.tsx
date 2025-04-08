@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { postReq, site } from "../utils/request";
 import { SafeAreaView } from "react-native-safe-area-context";
 import DatePicker from "react-native-date-picker";
-import { homess } from "../styles/home";
+import homess from "../styles/home";
 
 export type rs = {
   _id?: string;
@@ -60,7 +60,8 @@ const booking = () => {
         <View>
           <Text>{rs && rs.name}</Text>
           <View>
-            <Text>Date :</Text>
+            <Text>{`Date : ${date.toJSON().substring(0, 10)}`}</Text>
+
             <DatePicker
               modal
               open={dp}
@@ -82,7 +83,7 @@ const booking = () => {
                     setSid(el.sid);
                   }}
                 >
-                  <View style={el.sid === sid ? homess.sel : homess.slt}>
+                  <View style={[homess.slt, el.sid === sid && homess.sel]}>
                     <Text>{el.from + "-" + el.to}</Text>
                     <Text>{"" + el.price}</Text>
                     <Text>

@@ -14,7 +14,7 @@ import mov from "../../assets/images/movie.jpg";
 import gym from "../../assets/images/gyms.jpg";
 import lo from "../../assets/images/logout.png";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { homess } from "../styles/home";
+import homess from "../styles/home";
 
 const index = () => {
   const { user, setUser } = useContext(CruiseContext);

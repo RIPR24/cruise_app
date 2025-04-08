@@ -7,7 +7,7 @@ import {
   useColorScheme,
 } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
-import { logss } from "../styles/login";
+import logss from "../styles/login";
 import crs from "../../assets/images/cruise.png";
 import crsw from "../../assets/images/cruise-w.png";
 import { useRouter } from "expo-router";

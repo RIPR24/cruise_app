@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-export const logss = StyleSheet.create({
+const logss = StyleSheet.create({
   inp: {
     paddingHorizontal: 10,
     paddingVertical: 5,

@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 
-export const homess = StyleSheet.create({
+const homess = StyleSheet.create({
   selCon: {
     width: Dimensions.get("window").width,
     flexDirection: "column",
@@ -21,13 +21,14 @@ export const homess = StyleSheet.create({
     borderColor: "#848587",
     backgroundColor: "#c4c4c4",
     borderRadius: 5,
+    margin: 5,
+    padding: 10,
+    transitionDuration: "0.2s",
   },
   sel: {
-    height: 80,
-    borderWidth: 2,
+    height: 85,
     borderColor: "#1d68e0",
     backgroundColor: "#88b1f2",
-    borderRadius: 5,
   },
 });
 
