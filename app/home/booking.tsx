@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Pressable } from "react-native";
+import { View, Text, ScrollView, Pressable, Button } from "react-native";
 import React, { useEffect, useState } from "react";
 import { postReq, site } from "../utils/request";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -61,7 +61,12 @@ const booking = () => {
           <Text>{rs && rs.name}</Text>
           <View>
             <Text>{`Date : ${date.toJSON().substring(0, 10)}`}</Text>
-
+            <Button
+              title="change"
+              onPress={() => {
+                setDp(true);
+              }}
+            />
             <DatePicker
               modal
               open={dp}

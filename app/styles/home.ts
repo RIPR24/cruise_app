@@ -3,7 +3,6 @@ import { StyleSheet, Dimensions } from "react-native";
 const homess = StyleSheet.create({
   selCon: {
     width: Dimensions.get("window").width,
-    flexDirection: "column",
     alignItems: "center",
     flex: 1,
     gap: 20,
